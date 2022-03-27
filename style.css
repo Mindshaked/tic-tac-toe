@@ -1,0 +1,35 @@
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#board {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: lightblue;
+}
+
+.boardcells {
+    justify-self: center;
+    align-self: center;
+    font-size: 70px;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+
+}
+
+.boardcells:hover {
+    background-color: blue;
+}
+
