@@ -33,73 +33,89 @@ const gameFlow = (() => {
                 return true;
             } else if (gameBoard[2] == value && gameBoard[4] == value && gameBoard[6] == value){ // diagonal hacia arriba a la derecha
                 return true;
+            } else if (gameBoard.indexOf(" ") == -1){
+                tieResult();
             }
 
         }
     
-     const resetGame = () => {
-        for (i = 0; i < gameBoard.length; i++){
-                gameBoard[i] = " ";
-        }
-    }
-
-
-    const resetButton = document.getElementById("reset-button")
+     
 
     const gameWon = (value) => {
         if (value == true){
-            alert("has won the game")
+            alert("has won the game");
+            
 
         }
     }
 
    
 
-
-    let counter = 1;
-
     
-        for (let i = 0; i < gameBoard.length; i++ ){
-            const cell = document.createElement("div");
-            cell.classList.add("boardcells");
-            cell.innerHTML = gameBoard[i];
-            
-            cell.addEventListener("click", function(e) {
+        let counter = 1;
+
+        
+            for (let i = 0; i < gameBoard.length; i++ ){
+                const cell = document.createElement("div");
+                cell.classList.add("boardcells");
+                cell.innerHTML = gameBoard[i];
                 
-                if (cell.innerHTML == "X" || cell.innerHTML == "O"){
-                    return;
-                } else if (counter%2 == 1){
-                    gameBoard[i] = "X";
-                    cell.innerHTML = "X";
-                    counter++;
-                    let result = gameCondition("X")
-                    gameWon(result);
-                    console.log(gameBoard);
-                    return counter;
-                
-                } else {
-                    gameBoard[i] = "O";
-                    cell.innerHTML = "O";
-                    counter++;
-                    let result = gameCondition("O")
-                    gameWon(result);
-                    console.log(gameBoard);
-                    return counter;
+                cell.addEventListener("click", function(e) {
                     
-                }
-            
+                    if (cell.innerHTML == "X" || cell.innerHTML == "O"){
+                        return;
+                    } else if (counter%2 == 1){
+                        gameBoard[i] = "X";
+                        cell.innerHTML = "X";
+                        counter++;
+                        let result = gameCondition("X")
+                        gameWon(result);
+                        console.log(gameBoard);
+                        return counter;
+                    
+                    } else {
+                        gameBoard[i] = "O";
+                        cell.innerHTML = "O";
+                        counter++;
+                        let result = gameCondition("O")
+                        gameWon(result);
+                        console.log(gameBoard);
+                        return counter;
+                        
+                    }
                 
-            });
+                    
+                });
 
-        board.appendChild(cell);
+            board.appendChild(cell);
 
-         
-     
-    }
-
-   
+            
+        
+        } 
+        
+        const resetGame = () => {
+            for (i = 0; i < gameBoard.length; i++){
+                    const cell = document.getElementsByClassName("boardcells");
+                    gameBoard[i] = " ";
+                    cell[i].innerHTML = gameBoard[i];
+                    
+            }
+        }
+    
+    
+        const resetButton = document.getElementById("reset-button")
+    
+        resetButton.addEventListener("click", function(e){
+            resetGame();
+    
+        });
+        
+    
 
 })();
+
+
+
 
 
 /*
