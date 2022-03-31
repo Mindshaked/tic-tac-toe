@@ -10,9 +10,14 @@ const gameBoard =
 
 const gameFlow = (() => {
 
+    const stopGame = (event) => {
+        event.preventDefault();
+    };
+    
+
     const tieResult = (player) => {
         alert("tie")
-    }
+    };
 
     const gameCondition = (value) => {
             if (gameBoard[0] == value && gameBoard[1] == value && gameBoard[2] == value){
@@ -44,6 +49,8 @@ const gameFlow = (() => {
     const gameWon = (value) => {
         if (value == true){
             alert("has won the game");
+            stopGame();
+
             
 
         }
@@ -138,21 +145,14 @@ const playerDisplay = (() => {
     });
 
 
+})();
 
 
 /*
     const Player1 = (player1name) => {
         
         
-    
-        const win = () => {
-           
-            //player reach the conditions for winning
-        };
-    
-        const playerMove = x => {
-            
-        }
+        let wins = 0;
     
         return {getName, playerMove, win}
     
@@ -177,7 +177,6 @@ const playerDisplay = (() => {
 
 
 
-})();
 
 
 
