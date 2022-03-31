@@ -115,36 +115,70 @@ const gameFlow = (() => {
 })();
 
 
+const playerDisplay = (() => {
+
+    const player1Form = document.getElementById("player1Form");
+    const player2Form = document.getElementById("player2Form");
+
+    const player1NameDisplay = document.getElementById("player1namedisplay");
+    const player2NameDisplay = document.getElementById("player2namedisplay");
+
+    player1Form.addEventListener("submit", () => {
+
+        let player1name = player1Form['player1name'].value;
+        player1NameDisplay.innerHTML = player1name;
+        return player1name;
+    });
+
+    player2Form.addEventListener("submit", () => {
+
+        let player2name = player2Form['player2name'].value;
+        player2NameDisplay.innerHTML = player2name;
+        return player2name;
+    });
+
 
 
 
 /*
-const Player = (name) => {
-    const getName = () => name;
-
-    const win = () => {
-       
-        //player reach the conditions for winning
-    };
-
-    const playerMove = x => {
+    const Player1 = (player1name) => {
         
+        
+    
+        const win = () => {
+           
+            //player reach the conditions for winning
+        };
+    
+        const playerMove = x => {
+            
+        }
+    
+        return {getName, playerMove, win}
+    
     }
 
-    return {getName, playerMove, win}
-
-}
-
-// const gameflow = 
-
-/*const boardCells = document.getElementsById("boardcells");
-
-
-for (var i = 0 ; i < boardCells.length; i++) {
-    boardCells[i].addEventListener("click", function(e) {
-        boardCells.innerHTML = "X";
-    }); 
-
-}
-
+    const Player2 = (player2name) => {
+        const getName = () => name;
+    
+        const win = () => {
+           
+            //player reach the conditions for winning
+        };
+    
+        const playerMove = x => {
+            
+        }
+    
+        return {getName, playerMove, win}
+    
+    }
 */
+
+
+
+})();
+
+
+
+

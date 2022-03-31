@@ -13,6 +13,11 @@ body {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     display: grid;
+    width: 350px;
+    height: 350px;
+    justify-self: center;
+    align-self: center;
+    border-radius: 15px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     background-color: lightblue;
@@ -30,11 +35,88 @@ body {
 }
 
 .boardcells:hover {
-    background-color: blue;
+    background-color: rgb(100, 100, 175);
+    border-radius: 15px;
 }
 
 body > button {
     width: 80px;
     height: 50px;
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    align-self: center;
+    justify-self: center;
+    border-radius: 15px;
+    border: none;
+    background-color: coral;
 }
 
+
+
+#player1{
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    align-self: center;
+    justify-self: center;
+}
+
+#player1 > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    gap: 25px;
+}
+
+#player1 > form > label {
+    font-size: 45px;
+}
+
+#submitbutton1 {
+    border-radius: 15px;
+    border: none;
+    width: 70px;
+    height: 30px;
+}
+
+#submitbutton2 {
+    border-radius: 15px;
+    border: none;
+    width: 70px;
+    height: 30px;
+}
+
+#player2 > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    gap: 25px;
+}
+
+#player2 > form > label {
+    font-size: 45px;
+}
+
+#player2{
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+    align-self: center;
+    justify-self: center;
+}
+
+#player1name {
+    width: 120px;
+    height: 25px;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+
+#player2name {
+    width: 120px;
+    height: 25px;
+    border-radius: 15px;
+    padding-left: 10px;
+}
