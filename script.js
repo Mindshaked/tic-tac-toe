@@ -7,12 +7,10 @@ const gameBoard =
 " "," "," ",
 " "," "," "];
 
+let won = false;
 
 const gameFlow = (() => {
 
-    const stopGame = (event) => {
-        event.preventDefault();
-    };
     
 
     const tieResult = (player) => {
@@ -49,9 +47,7 @@ const gameFlow = (() => {
     const gameWon = (value) => {
         if (value == true){
             alert("has won the game");
-            stopGame();
-
-            
+            won = true;
 
         }
     }
@@ -66,10 +62,13 @@ const gameFlow = (() => {
                 const cell = document.createElement("div");
                 cell.classList.add("boardcells");
                 cell.innerHTML = gameBoard[i];
-                
-                cell.addEventListener("click", function(e) {
+
+                let playing = function(e) {
                     
-                    if (cell.innerHTML == "X" || cell.innerHTML == "O"){
+                    if (won == true){
+                        return;
+
+                    } else if (cell.innerHTML == "X" || cell.innerHTML == "O"){
                         return;
                     } else if (counter%2 == 1){
                         gameBoard[i] = "X";
@@ -92,7 +91,9 @@ const gameFlow = (() => {
                     }
                 
                     
-                });
+                }
+                
+                cell.addEventListener("click", playing);
 
             board.appendChild(cell);
 
@@ -130,31 +131,33 @@ const playerDisplay = (() => {
     const player1NameDisplay = document.getElementById("player1namedisplay");
     const player2NameDisplay = document.getElementById("player2namedisplay");
 
-    player1Form.addEventListener("submit", () => {
+    player1Form.addEventListener("submit", (e) => {
 
         let player1name = player1Form['player1name'].value;
         player1NameDisplay.innerHTML = player1name;
-        return player1name;
+        e.preventDefault();
+        
     });
 
-    player2Form.addEventListener("submit", () => {
+    player2Form.addEventListener("submit", (e) => {
 
         let player2name = player2Form['player2name'].value;
         player2NameDisplay.innerHTML = player2name;
-        return player2name;
+        e.preventDefault();
+        
     });
 
-
+    return {player1name, player2name};
 })();
 
 
 /*
     const Player1 = (player1name) => {
         
-        
+        let name = player1name;
         let wins = 0;
     
-        return {getName, playerMove, win}
+        
     
     }
 

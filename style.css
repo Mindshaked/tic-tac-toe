@@ -31,9 +31,15 @@ body {
     width: 120px;
     height: 120px;
     text-align: center;
+    justify-items: center;
     opacity: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
+
+
 
 .boardcells:hover {
     background-color: rgb(100, 100, 175);
